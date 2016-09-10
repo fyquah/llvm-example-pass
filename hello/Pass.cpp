@@ -7,6 +7,7 @@ using namespace llvm;
 namespace {
 
 class Hello : public FunctionPass {
+public:
     static char ID;
     Hello() : FunctionPass(ID) {}
     bool runOnFunction(Function &F) override {
@@ -15,7 +16,7 @@ class Hello : public FunctionPass {
         return false;
     }
 
-} // Hello
+}; // Hello
 } // namespace
 
 char Hello::ID = 0;
