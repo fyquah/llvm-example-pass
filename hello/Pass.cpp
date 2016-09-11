@@ -6,13 +6,29 @@ using namespace llvm;
 
 namespace {
 
-class Hello : public FunctionPass {
+
+class GraphBuilder {
+private:
+    
+public:
+    GraphBuilder() {}
+    void process_function(llvm::Function function) {}
+};
+
+class Hello : public llvm::ModulePass {
+private:
+    GraphBuilder graph_builder;
 public:
     static char ID;
-    Hello() : FunctionPass(ID) {}
-    bool runOnFunction(Function &F) override {
-        errs() << "Hello: ";
-        errs().write_escaped(F.getName()) << "\n";
+    Hello() : llvm::ModulePass(ID) {
+    
+    }
+    bool runOnModule(llvm::Module &module) override {
+        // try construct a call graph ...
+//         auto function_list = module.getFunctionList();
+//         for (llvm::Function &function : function_list) {
+//              function_list.getSubProgram();
+//         }
         return false;
     }
 
