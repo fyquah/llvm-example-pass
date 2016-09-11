@@ -24,6 +24,7 @@ public:
     
     }
     bool runOnModule(llvm::Module &module) override {
+        errs() << "Hello";
         // try construct a call graph ...
 //         auto function_list = module.getFunctionList();
 //         for (llvm::Function &function : function_list) {
